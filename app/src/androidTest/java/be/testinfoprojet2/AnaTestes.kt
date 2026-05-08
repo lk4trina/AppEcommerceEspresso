@@ -158,4 +158,28 @@ class AnaTestes {
         onView(withId(R.id.ok))
             .perform(click())
     }
+
+    @Test
+    fun mob07_erro_carrinhoVazioDeveMostrarZero() {
+        validarTelaInicial()
+
+        onView(allOf(withId(R.id.navCart), isDisplayed())).perform(click())
+
+        onView(withId(R.id.totalPanier)).check(matches(withText("0.00 €")))
+    }
+
+    @Test
+    fun mob08_excecao_tentarAcessarItemInexistente() {
+        validarTelaInicial()
+        try {
+            onView(withId(R.id.myListView)).perform(
+                RecyclerViewActions.actionOnItemAtPosition<RecyclerView.ViewHolder>(50, click())
+            )
+
+            org.junit.Assert.fail("O emulador conseguiu interagir com a posição 50...")
+
+        } catch (e: Exception) {
+            println("Não encontrou o produto. Emulador bloqueou a ação.")
+        }
+    }
 }
