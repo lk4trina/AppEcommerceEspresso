@@ -20,6 +20,7 @@ class DetailsProduit : AppCompatActivity() {
 
         super.onCreate(savedInstanceState)
         setContentView(R.layout.details_produit)
+        NavigationHelper.configurar(this, "Detalhes do produto")
 
         nomProduit = findViewById(R.id.nomProduit)
         prix = findViewById(R.id.priceDetails)
@@ -44,7 +45,7 @@ class DetailsProduit : AppCompatActivity() {
 
             addToPanier(currentObject)// ajoute le produit au panier
             //AlertDialog.Builder(this).setMessage("Ajouté au panier : $name DEBUG: ${currentObject?.name} --- ${currentObject?.price} € --- $currentObject").create().show() //confirmation (et debug)
-            AlertDialog.Builder(this).setMessage("Ajouté au panier : ${currentObject?.name} - ${currentObject?.price} €").create().show() //confirmation
+            AlertDialog.Builder(this).setMessage("Adicionado ao carrinho : ${currentObject?.name} - ${currentObject?.price} €").create().show() //confirmation
         }
 
         boutonPanier.setOnClickListener { // Lance l'activity Panier

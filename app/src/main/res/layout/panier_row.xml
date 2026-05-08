@@ -1,77 +1,70 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.google.android.material.card.MaterialCardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@color/white"
-    android:paddingVertical="4dp">
+    android:layout_margin="8dp"
+    app:cardCornerRadius="18dp"
+    app:cardElevation="4dp"
+    app:cardBackgroundColor="@color/white">
 
-    <ImageView
-        android:id="@+id/imagePanier"
-        android:layout_width="0dp"
-        android:layout_height="78dp"
-        android:src="@drawable/car_giorgio_trovato_unsplash"
-        app:layout_constraintDimensionRatio="1:1"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/namePanier"
-        android:layout_width="wrap_content"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textColor="@color/black"
-        android:textSize="20sp"
-        android:layout_marginLeft="8dp"
-        app:layout_constraintStart_toEndOf="@+id/imagePanier"
-        app:layout_constraintTop_toBottomOf="@+id/pricePanier"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintLeft_toRightOf="@id/imagePanier"
-        tools:text="Produit" />
+        android:padding="12dp">
 
-    <TextView
-        android:id="@+id/pricePanier"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="30sp"
-        android:layout_marginLeft="8dp"
-        android:textColor="#777777"
-        app:layout_constraintStart_toEndOf="@id/imagePanier"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        tools:text="Prix" />
+        <ImageView
+            android:id="@+id/imagePanier"
+            android:layout_width="82dp"
+            android:layout_height="82dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/car_giorgio_trovato_unsplash"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent" />
 
-    <!--
-    <ImageView
-        android:id="@+id/imagePanier"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        app:layout_constraintDimensionRatio="1:1"
-        android:src="@drawable/giorgio_trovato_unsplash"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+        <TextView
+            android:id="@+id/namePanier"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textColor="#222222"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:layout_marginLeft="14dp"
+            app:layout_constraintTop_toTopOf="@id/imagePanier"
+            app:layout_constraintLeft_toRightOf="@id/imagePanier"
+            app:layout_constraintRight_toRightOf="parent"
+            tools:text="Produto" />
 
-    <TextView
-        android:id="@+id/namePanier"
-        tools:text="Produit"
-        android:textSize="20sp"
-        android:textColor="#000000"
-        app:layout_constraintTop_toBottomOf="@id/imagePanier"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toLeftOf="@id/pricePanier"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"/>
+        <TextView
+            android:id="@+id/pricePanier"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="@color/purple_500"
+            android:layout_marginLeft="14dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintTop_toBottomOf="@id/namePanier"
+            app:layout_constraintLeft_toRightOf="@id/imagePanier"
+            tools:text="99 €" />
 
-    <TextView
-        android:id="@+id/pricePanier"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/imagePanier"
-        app:layout_constraintRight_toRightOf="parent"
-        tools:text="Prix"
-        android:textSize="15sp"
-        android:gravity="center_horizontal" />
-    -->
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <TextView
+            android:id="@+id/itemCarrinhoHint"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Item adicionado ao carrinho"
+            android:textSize="14sp"
+            android:textColor="#888888"
+            android:layout_marginLeft="14dp"
+            android:layout_marginTop="6dp"
+            app:layout_constraintTop_toBottomOf="@id/pricePanier"
+            app:layout_constraintLeft_toRightOf="@id/imagePanier"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</com.google.android.material.card.MaterialCardView>

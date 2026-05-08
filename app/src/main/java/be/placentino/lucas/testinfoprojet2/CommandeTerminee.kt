@@ -14,9 +14,10 @@ class CommandeTerminee : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.commande_terminee)
+        NavigationHelper.configurar(this, "Pedido finalizado")
 
         textView = findViewById(R.id.MerciCommande)
-        textView.setText("Merci pour votre commande de " + calculTotal() + " €")
+        textView.setText("Agradecemos pelo seu pedido de " + calculTotal() + " €")
 
         boutonOk = findViewById(R.id.ok)
         boutonOk.setOnClickListener { // bouton OK appuyé

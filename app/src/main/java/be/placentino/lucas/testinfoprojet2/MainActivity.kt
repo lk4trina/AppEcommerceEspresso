@@ -28,6 +28,7 @@ class MainActivity : AppCompatActivity() {
 
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        NavigationHelper.configurar(this, "Loja Mobile", mostrarVoltar = false)
 
         recyclerView = findViewById(R.id.myListView)
         GridLayoutManager = GridLayoutManager(this, 2)

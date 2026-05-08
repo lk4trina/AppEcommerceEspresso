@@ -20,6 +20,7 @@ class Panier : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.panier)
+        NavigationHelper.configurar(this, "Pedido finalizado")
 
         recyclerView = findViewById(R.id.recyclerViewPanier)
         linearLayoutManager = LinearLayoutManager(this)

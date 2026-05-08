@@ -1,71 +1,113 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white">
+    android:background="#F7F7F7">
+
+    <include
+        android:id="@+id/headerContainer"
+        layout="@layout/app_header"
+        android:layout_width="0dp"
+        android:layout_height="64dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent" />
+
+    <TextView
+        android:id="@+id/titlePanier"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Meu carrinho"
+        android:textColor="#222222"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:paddingTop="20dp"
+        app:layout_constraintTop_toBottomOf="@id/headerContainer"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent" />
 
     <TextView
         android:id="@+id/textPanier"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:padding="8dp"
-        android:text="TOTAL : "
-        android:textSize="30sp"
+        android:text="TOTAL:"
+        android:textSize="22sp"
+        android:textStyle="bold"
         android:textColor="#777777"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintRight_toLeftOf="@+id/totalPanier"/>
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="12dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/titlePanier" />
 
     <TextView
         android:id="@+id/totalPanier"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:padding="8dp"
-        android:textSize="30sp"
-        android:textColor="@color/black"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        android:textColor="@color/purple_500"
         android:text="0 €"
-        app:layout_constraintStart_toEndOf="@+id/textPanier"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerViewPanier"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/textPanier"
-        app:layout_constraintBottom_toTopOf="@+id/boutonFinaliser"
-        android:padding="8dp"/>
+        android:layout_marginLeft="8dp"
+        app:layout_constraintBaseline_toBaselineOf="@id/textPanier"
+        app:layout_constraintLeft_toRightOf="@id/textPanier" />
 
     <Button
         android:id="@+id/buttonRefreshTotal"
-        android:layout_width="0dp"
+        style="@style/Widget.MaterialComponents.Button"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
-        android:layout_marginRight="8dp"
-        android:text="Recalculer le total"
+        android:text="Recalcular"
         android:textColor="@color/white"
+        android:textAllCaps="false"
+        android:textSize="14sp"
+        android:layout_marginRight="16dp"
+        app:cornerRadius="20dp"
         app:backgroundTint="@color/purple_500"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintLeft_toRightOf="@+id/totalPanier"
-        app:layout_constraintStart_toEndOf="@+id/totalPanier"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintBaseline_toBaselineOf="@id/textPanier"
+        app:layout_constraintRight_toRightOf="parent" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewPanier"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:padding="12dp"
+        android:clipToPadding="false"
+        app:layout_constraintTop_toBottomOf="@id/textPanier"
+        app:layout_constraintBottom_toTopOf="@id/boutonFinaliser"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent" />
 
     <Button
         android:id="@+id/boutonFinaliser"
+        style="@style/Widget.MaterialComponents.Button"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="FINALISER COMMANDE"
-        android:textSize="24sp"
+        android:text="Finalizar pedido"
+        android:textSize="20sp"
         android:textColor="@color/white"
+        android:textAllCaps="false"
+        android:padding="14dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginBottom="12dp"
+        app:cornerRadius="24dp"
         app:backgroundTint="@color/teal_700"
-        android:layout_marginHorizontal="8dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/recyclerViewPanier"
-        app:layout_constraintBottom_toBottomOf="parent"/>
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/bottomNavContainer" />
+
+    <include
+        android:id="@+id/bottomNavContainer"
+        layout="@layout/app_bottom_nav"
+        android:layout_width="0dp"
+        android:layout_height="72dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
