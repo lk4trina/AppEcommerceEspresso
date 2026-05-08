@@ -1,5 +1,6 @@
-package be.placentino.lucas.testinfoprojet2
+package be.testinfoprojet2
 
+import be.testinfoprojet2.R
 import kotlin.collections.ArrayList
 
 class ListeProduits {

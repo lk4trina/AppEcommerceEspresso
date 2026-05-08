@@ -1,4 +1,4 @@
-package be.placentino.lucas.testinfoprojet2
+package be.testinfoprojet2
 
 /*     #TODO    ---    NON UTILISE    ---
 

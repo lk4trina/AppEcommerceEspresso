@@ -1,4 +1,4 @@
-package be.placentino.lucas.testinfoprojet2
+package be.testinfoprojet2
 
 import android.content.Intent
 import android.view.LayoutInflater
@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import be.testinfoprojet2.R
 
 class MainAdapter(private val produits: ArrayList<Produit>) : RecyclerView.Adapter<MainAdapter.ViewHolder>() {
 
@@ -23,7 +24,7 @@ class MainAdapter(private val produits: ArrayList<Produit>) : RecyclerView.Adapt
         return holder
     }
 
-    override fun onBindViewHolder(holder: MainAdapter.ViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
 
         val photo = produits[position].image // défini l'image pour l'item dans la recyclerview
         holder.image1.setImageResource(photo!!)

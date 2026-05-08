@@ -1,9 +1,10 @@
-package be.placentino.lucas.testinfoprojet2
+package be.testinfoprojet2
 
 import android.app.Activity
 import android.content.Intent
 import android.view.View
 import android.widget.TextView
+import be.testinfoprojet2.R
 
 object NavigationHelper {
 

@@ -1,10 +1,11 @@
-package be.placentino.lucas.testinfoprojet2
+package be.testinfoprojet2
 
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import be.testinfoprojet2.R
 
 class CommandeTerminee : AppCompatActivity() {
 

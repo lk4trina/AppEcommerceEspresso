@@ -1,12 +1,13 @@
-package be.placentino.lucas.testinfoprojet2
+package be.testinfoprojet2
 
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.appcompat.app.AlertDialog
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import be.testinfoprojet2.R
 
 class DetailsProduit : AppCompatActivity() {
 
@@ -17,9 +18,9 @@ class DetailsProduit : AppCompatActivity() {
     lateinit var photoProduit: ImageView
 
     override fun onCreate(savedInstanceState: Bundle?) {
-
         super.onCreate(savedInstanceState)
         setContentView(R.layout.details_produit)
+
         NavigationHelper.configurar(this, "Detalhes do produto")
 
         nomProduit = findViewById(R.id.nomProduit)
@@ -28,34 +29,38 @@ class DetailsProduit : AppCompatActivity() {
         boutonAddToPanier = findViewById(R.id.buttonAddToCart)
         boutonPanier = findViewById(R.id.buttonDetailsToCart)
 
-        val currentObject = intent.getParcelableExtra<Produit>("object") // prend l'objet produit selectionné depuis la recyclerview
-
-        val id = currentObject?.id // non-utilisé, id du produit
+        val currentObject = intent.getParcelableExtra<Produit>("object")
 
         val name = currentObject?.name
-        nomProduit.text = name // affiche le nom du produit
+        nomProduit.text = name
 
         val price = currentObject?.price
-        prix.text = price + " €" // affiche le prix du produit
+        prix.text = "$price €"
 
         val image = currentObject?.image
-        photoProduit.setImageResource(image!!)
-
-        boutonAddToPanier.setOnClickListener {
-
-            addToPanier(currentObject)// ajoute le produit au panier
-            //AlertDialog.Builder(this).setMessage("Ajouté au panier : $name DEBUG: ${currentObject?.name} --- ${currentObject?.price} € --- $currentObject").create().show() //confirmation (et debug)
-            AlertDialog.Builder(this).setMessage("Adicionado ao carrinho : ${currentObject?.name} - ${currentObject?.price} €").create().show() //confirmation
+        if (image != null) {
+            photoProduit.setImageResource(image)
         }
 
-        boutonPanier.setOnClickListener { // Lance l'activity Panier
+        boutonAddToPanier.setOnClickListener {
+            addToPanier(currentObject)
 
+            Toast.makeText(
+                this,
+                "Adicionado ao carrinho: ${currentObject?.name} - ${currentObject?.price} €",
+                Toast.LENGTH_SHORT
+            ).show()
+        }
+
+        boutonPanier.setOnClickListener {
             val intent = Intent(this, Panier::class.java)
             startActivity(intent)
         }
     }
-    private fun addToPanier(currentObject: Produit){
 
-        ListePanier.addItem(currentObject)
+    private fun addToPanier(currentObject: Produit?) {
+        if (currentObject != null) {
+            ListePanier.addItem(currentObject)
+        }
     }
 }
